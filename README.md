@@ -17,14 +17,16 @@ The threads use the counter to add and subtract values.
 
 | Counter class           | Limit              | Runtime (sec)   |
 |:------------------------|:-------------------|-----------------|
-| Unsynchronized counter  |                    |                 |
-| Using ReentrantLock     |                    |                 |
-| Syncronized method      |                    |                 |
-| AtomicLong for total    |                    |                 |
+| Unsynchronized counter  |         10,000,000 | 0.015469        |
+| Using ReentrantLock     |         10,000,000 | 0.760960       |
+| Syncronized method      |         10,000,000 | 0.890829        |
+| AtomicLong for total    |         10,000,000 | 0.253438        |
 
 ## 1. Using unsynchronized counter object
 
-answer the questions (1.1 - 1.3)
+1.1 The total should be zero, but in the test show that the total is hardly to be zero, and it's always return different results.  
+1.2 In the table.  
+1.3 Because when we ran two thread in one time, they also have operation inside each thread, too. There are load, change, and replace. Each thread is running by itself, so it makes the result when they load, change, and replace incorrect.
 
 ## 2. Implications for Multi-threaded Applications
 
@@ -47,4 +49,3 @@ answer question 5
 answer question 6
 
 ## 7. Using Many Threads (optional)
-
